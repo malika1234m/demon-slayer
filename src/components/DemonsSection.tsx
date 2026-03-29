@@ -3,21 +3,22 @@ import { useRef, useEffect, useState } from "react";
 interface Demon {
   rank: string;
   name: string;
+  kanji: string;
   art: string;
-  desc: string;
+  hook: string;
   traits: string[];
   color: string;
 }
 
 const demons: Demon[] = [
-  { rank: "Upper Rank I", name: "Kokushibo", art: "Moon Breathing", desc: "Once a human — the twin brother of Yoriichi Tsugikuni. Envious and terrified of death, he chose demonhood. His Moon Breathing has sixteen forms and creates crescent-shaped blades from his flesh.", traits: ["Moon Breathing (16 Forms)", "Former Demon Slayer", "Yoriichi's Twin", "Multiple Eyes"], color: "#ef4444" },
-  { rank: "Upper Rank II", name: "Doma", art: "Cryogenic Blood Demon Art", desc: "The most disturbing villain — a hollow entity who has never experienced genuine emotion, yet perfectly mimics warmth. He leads a cult he ultimately devours. His ice-based art creates blizzards and frozen carnage.", traits: ["Ice Blood Demon Art", "Killed Kanae Kocho", "Emotionally Hollow", "Cult Leader"], color: "#22d3ee" },
-  { rank: "Upper Rank III", name: "Akaza", art: "Destructive Death — Martial Arts", desc: "A pure martial artist of terrifying power who fights entirely with his fists. His tragic backstory as Hakuji makes him one of the most complex demons. He personally defeats Rengoku on the Mugen Train.", traits: ["Destructive Death Art", "Defeated Rengoku", "Hateful of Weakness", "No Weapons"], color: "#f97316" },
-  { rank: "Upper Rank IV", name: "Hantengu", art: "Emotion-Split Clones", desc: "His Blood Demon Art manifests emotions as powerful individual demon clones — fear, anger, pleasure, sorrow, and joy. Despite his grotesque power, Hantengu himself is a coward who screams innocence.", traits: ["Emotion Split Art", "Clone Manifestation", "Zohakuten Form", "Cowardly True Form"], color: "#d946ef" },
-  { rank: "Upper Rank V", name: "Gyokko", art: "Vase Blood Demon Art", desc: "A narcissistic demon who considers himself a supreme artist. His art involves emerging from decorative vases and creating grotesque sculptures from victims' bodies.", traits: ["Vase Teleportation", "Fish Demon Spawn", "Narcissist Artist", "True Form: Aquatic"], color: "#4ade80" },
-  { rank: "Upper Rank VI", name: "Daki & Gyutaro", art: "Sash & Sickle Blood Demon Arts", desc: "Siblings sharing a single Upper Rank. Their tragic backstory as starving children makes them sympathetic monsters. Together they were almost unstoppable in the Entertainment District.", traits: ["Shared Upper Rank", "Entertainment District Arc", "Sash & Sickle Arts", "Inseparable Siblings"], color: "#fb7185" },
-  { rank: "Notable Demon", name: "Rui", art: "Thread Blood Demon Art — Lower Rank V", desc: "A lonely demon who desperately craved family bonds. He created a false 'family' on Mt. Natagumo, punishing members brutally when they failed. His steel-wire threads are nearly invisible.", traits: ["Steel Thread Art", "Mt. Natagumo", "Lower Rank V", "Craved Family"], color: "#fbbf24" },
-  { rank: "Notable Demon", name: "Enmu", art: "Dream Manipulation — Lower Rank I", desc: "The last surviving Lower Rank, granted extra blood by Muzan. His art traps victims in blissful dreams while destroying their spiritual cores. He fused with the Mugen Train itself.", traits: ["Dream Manipulation", "Mugen Train Arc", "Lower Rank I", "Muzan's Favorite"], color: "#818cf8" },
+  { rank: "Upper Rank I",       name: "Kokushibo",       kanji: "黒死牟",       art: "Moon Breathing",            hook: "Yoriichi's twin brother — chose immortality over humanity, wielding Moon Breathing with sixteen crescent blade forms from his own flesh.",     traits: ["Moon Breathing", "16 Forms", "Former Slayer", "Multiple Eyes"],       color: "#ef4444" },
+  { rank: "Upper Rank II",      name: "Doma",             kanji: "童磨",         art: "Cryogenic Blood Demon Art", hook: "Cult leader who has never felt a genuine emotion — his ice Blood Art conjures blizzards that shred everything within range.",                  traits: ["Ice Blood Art", "Killed Kanae", "Cult Leader", "Emotionally Hollow"], color: "#22d3ee" },
+  { rank: "Upper Rank III",     name: "Akaza",            kanji: "猗窩座",       art: "Destructive Death",         hook: "A pure martial artist who fights bare-handed — he murdered Rengoku on the Mugen Train and hunts only the strong.",                            traits: ["No Weapons", "Killed Rengoku", "Martial Arts", "Hates Weakness"],    color: "#f97316" },
+  { rank: "Upper Rank IV",      name: "Hantengu",         kanji: "半天狗",       art: "Emotion-Split Clones",      hook: "His Blood Art splits emotions into powerful demon clones — yet his terrifying true form is a screaming, helpless coward.",                    traits: ["Clone Art", "Zohakuten Form", "Fear / Anger / Joy", "True Coward"],  color: "#d946ef" },
+  { rank: "Upper Rank V",       name: "Gyokko",           kanji: "玉壺",         art: "Vase Blood Demon Art",      hook: "Teleports through ornate ceramic vases and sculpts grotesque 'art' from his victims' bodies — calling it his masterpiece.",                   traits: ["Vase Teleport", "Fish Spawn", "Narcissist Artist", "Aquatic Form"],  color: "#4ade80" },
+  { rank: "Upper Rank VI",      name: "Daki & Gyutaro",  kanji: "堕姫/妓夫太郎", art: "Sash & Sickle Arts",        hook: "Siblings sharing one Upper Rank body — nearly unstoppable together, their tragic origin makes them the most human of monsters.",               traits: ["Shared Rank", "Sash & Sickle", "Entertainment District", "Siblings"], color: "#fb7185" },
+  { rank: "Notable — Lower V",  name: "Rui",              kanji: "累",           art: "Thread Blood Demon Art",    hook: "Craved family so desperately he enslaved demons on Mt. Natagumo — bound together by nearly invisible razor-wire threads.",                      traits: ["Steel Threads", "Mt. Natagumo", "False Family", "Lower Rank V"],     color: "#fbbf24" },
+  { rank: "Notable — Lower I",  name: "Enmu",             kanji: "魘夢",         art: "Dream Manipulation",        hook: "The last surviving Lower Rank, granted Muzan's blood — traps victims in paradise dreams while silently destroying their souls.",               traits: ["Dream Art", "Mugen Train", "Muzan's Blood", "Soul Destruction"],    color: "#818cf8" },
 ];
 
 const DemonsSection = () => {
@@ -40,58 +41,74 @@ const DemonsSection = () => {
   return (
     <section id="demons" className="relative py-24" style={{ background: "linear-gradient(180deg, hsl(240 10% 4%), hsl(0 10% 5%), hsl(240 10% 4%))" }}>
       <div className="container mx-auto px-6">
+
         <div className="text-center mb-10">
           <p className="section-eyebrow mb-3">TWELVE KIZUKI</p>
           <h2 className="font-heading text-4xl sm:text-5xl mb-4">
             Upper Rank <span className="accent-text">Demons</span>
           </h2>
-          <p className="text-foreground/60 font-body text-lg max-w-2xl mx-auto">
-            Born from human despair and empowered by Muzan's blood — the most terrifying beings in existence.
+          <p className="text-foreground/60 font-body text-lg max-w-xl mx-auto">
+            Born from human despair, empowered by Muzan's blood — the most terrifying beings alive.
           </p>
         </div>
 
-        {/* Muzan Banner */}
-        <div className="glass-card p-8 mb-16 max-w-3xl mx-auto border-primary/30 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
-          <div className="relative">
-            <div className="text-center mb-4">
-              <span className="text-3xl">♔</span>
-              <h3 className="font-heading text-2xl text-foreground mt-2">Muzan Kibutsuji</h3>
-              <p className="text-primary font-heading text-sm">The Demon King — 鬼舞辻無惨</p>
+        {/* Muzan identity — visual, no paragraph */}
+        <div className="glass-card-elevated mb-12 max-w-3xl mx-auto overflow-hidden relative">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/8 to-transparent pointer-events-none" />
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+          <div className="relative flex flex-col sm:flex-row items-center gap-6 p-7">
+            <div
+              className="shrink-0 w-16 h-16 rounded-xl flex items-center justify-center font-display text-3xl"
+              style={{ background: "hsl(0 80% 55% / 0.12)", color: "hsl(0 80% 60%)" }}
+            >
+              鬼
             </div>
-            <p className="text-foreground/60 font-body text-center leading-relaxed">
-              The progenitor of all demons and the embodiment of evil. Muzan killed Tanjiro's family and turned Nezuko into a demon. He seeks immunity to sunlight to become a truly perfect being — and annihilates anyone who speaks his name.
-            </p>
+            <div className="text-center sm:text-left">
+              <span className="text-[10px] font-heading tracking-[0.22em] text-primary/60 uppercase">Demon King — 鬼舞辻無惨</span>
+              <h3 className="font-heading text-2xl sm:text-3xl text-foreground mt-1">Muzan Kibutsuji</h3>
+              <p className="text-foreground/50 font-body text-sm mt-1.5 max-w-sm">
+                Progenitor of all demons. His one weakness is sunlight — and anyone who speaks his name.
+              </p>
+              <div className="flex flex-wrap gap-1.5 mt-3 justify-center sm:justify-start">
+                {["All Demons Fear Him", "Killed Tanjiro's Family", "Turned Nezuko", "Seeks Sunlight Immunity"].map((t) => (
+                  <span key={t} className="text-[10px] px-2 py-0.5 rounded-full font-heading"
+                    style={{ background: "hsl(0 80% 55% / 0.12)", color: "hsl(0 80% 65%)" }}>
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Demon grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
           {demons.map((demon, i) => (
             <div
               key={demon.name}
               ref={(el) => { refs.current[i] = el; }}
               data-idx={i}
-              className={`glass-card p-5 group hover:scale-[1.02] transition-all duration-500 relative overflow-hidden ${
+              className={`glass-card group hover:scale-[1.02] transition-all duration-500 relative overflow-hidden ${
                 visible.has(i) ? "animate-fade-up" : "opacity-0"
               }`}
-              style={{ animationDelay: `${i * 0.08}s` }}
+              style={{ animationDelay: `${i * 0.07}s` }}
             >
-              <div
-                className="absolute top-0 left-0 right-0 h-0.5 opacity-60"
-                style={{ background: `linear-gradient(90deg, transparent, ${demon.color}, transparent)` }}
-              />
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                style={{ background: `radial-gradient(circle at 50% 0%, ${demon.color}10, transparent 60%)` }}
-              />
-              <div className="relative">
-                <span className="text-xs font-heading tracking-wider text-muted-foreground">{demon.rank}</span>
-                <h3 className="font-heading text-xl mt-1 mb-1" style={{ color: demon.color }}>{demon.name}</h3>
-                <p className="text-xs font-heading text-muted-foreground mb-3">{demon.art}</p>
-                <p className="text-foreground/60 font-body text-sm leading-relaxed mb-4">{demon.desc}</p>
+              <div className="h-px opacity-60" style={{ background: `linear-gradient(90deg, transparent, ${demon.color}, transparent)` }} />
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                style={{ background: `radial-gradient(circle at 50% 0%, ${demon.color}10, transparent 65%)` }} />
+
+              <div className="relative p-5">
+                <div className="flex items-start justify-between mb-2">
+                  <span className="text-[10px] font-heading tracking-wider text-muted-foreground leading-tight">{demon.rank}</span>
+                  <span className="font-display text-lg opacity-20" style={{ color: demon.color }}>{demon.kanji}</span>
+                </div>
+                <h3 className="font-heading text-lg mb-0.5" style={{ color: demon.color }}>{demon.name}</h3>
+                <p className="text-[11px] font-heading text-muted-foreground mb-3">{demon.art}</p>
+                <p className="text-foreground/60 font-body text-sm leading-relaxed mb-4">{demon.hook}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {demon.traits.map((t) => (
-                    <span key={t} className="text-[10px] px-2 py-0.5 rounded-full font-heading tracking-wide" style={{ background: `${demon.color}15`, color: demon.color }}>
+                    <span key={t} className="text-[10px] px-2 py-0.5 rounded-full font-heading"
+                      style={{ background: `${demon.color}15`, color: demon.color }}>
                       {t}
                     </span>
                   ))}

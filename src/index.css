@@ -78,22 +78,45 @@
   body {
     @apply bg-background text-foreground;
     font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    line-height: 1.7;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cinzel', serif;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
   }
 }
 
 @layer components {
+  /* Standard glass surface */
   .glass-card {
-    @apply bg-glass/60 backdrop-blur-xl border border-glass-border rounded-xl;
+    @apply backdrop-blur-xl rounded-xl;
+    background: hsl(var(--glass) / 0.52);
+    border: 1px solid hsl(var(--glass-border) / 0.55);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.04) inset,
+      0 8px 40px rgba(0, 0, 0, 0.4),
+      0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  /* Elevated glass for featured / hero cards */
+  .glass-card-elevated {
+    @apply backdrop-blur-2xl rounded-xl;
+    background: hsl(var(--glass) / 0.70);
+    border: 1px solid hsl(var(--glass-border) / 0.75);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.06) inset,
+      0 24px 64px rgba(0, 0, 0, 0.55),
+      0 4px 12px rgba(0, 0, 0, 0.4);
   }
   .flame-text {
     @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
   }
   .section-eyebrow {
-    @apply text-xs tracking-[0.3em] text-accent uppercase font-sans;
+    @apply text-[11px] tracking-[0.25em] text-accent/80 uppercase;
     font-family: 'Cinzel', serif;
   }
   .accent-text {
@@ -111,6 +134,10 @@
   .font-body {
     font-family: 'EB Garamond', serif;
   }
+  /* Required for card flip 3-D transforms */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
 }
 
 /* Scroll animations */
@@ -127,49 +154,49 @@
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-60px); }
+  from { opacity: 0; transform: translateX(-50px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(60px); }
+  from { opacity: 0; transform: translateX(50px); }
   to { opacity: 1; transform: translateX(0); }
 }
 
 .animate-fade-up {
-  animation: fade-up 0.8s ease-out both;
+  animation: fade-up 0.7s ease-out both;
 }
 
 .animate-slide-left {
-  animation: slide-in-left 0.8s ease-out both;
+  animation: slide-in-left 0.7s ease-out both;
 }
 
 .animate-slide-right {
-  animation: slide-in-right 0.8s ease-out both;
+  animation: slide-in-right 0.7s ease-out both;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar — refined */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(var(--background));
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--primary) / 0.5);
-  border-radius: 4px;
+  background: hsl(var(--primary) / 0.35);
+  border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary) / 0.7);
+  background: hsl(var(--primary) / 0.6);
 }
 
 /* Selection */
 ::selection {
-  background: hsl(var(--primary) / 0.3);
+  background: hsl(var(--primary) / 0.25);
   color: hsl(var(--foreground));
 }

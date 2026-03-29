@@ -10,13 +10,15 @@ interface Character {
   color: string;
   icon: string;
   kanji: string;
+  image?: string;
 }
 
 const characters: Character[] = [
-  { name: "Tanjiro Kamado", role: "Protagonist", breathing: "Water / Sun Breathing", bio: "A kindhearted boy turned fierce demon slayer. His empathy for even his enemies makes him unique — he fights with compassion and an unbreakable will.", category: "Main", color: "#60a5fa", icon: "⚔️", kanji: "竈門炭治郎" },
+  { name: "Tanjiro Kamado", role: "Protagonist", breathing: "Water / Sun Breathing", bio: "A kindhearted boy turned fierce demon slayer. His empathy for even his enemies makes him unique — he fights with compassion and an unbreakable will.", category: "Main", color: "#60a5fa", icon: "⚔️", kanji: "竈門炭治郎", image: "/characters/Tanjiro.webp" },
   { name: "Nezuko Kamado", role: "Demon Sister", breathing: "Blood Demon Art: Exploding Blood", bio: "Tanjiro's sister turned demon — yet she retains her humanity, protecting humans and fighting alongside her brother. She conquers the sun itself.", category: "Main", color: "#f472b6", icon: "🌸", kanji: "竈門禰豆子" },
-  { name: "Zenitsu Agatsuma", role: "Thunder Swordsman", breathing: "Thunder Breathing", bio: "Cowardly when awake, lethal when asleep. Zenitsu mastered only one form — but perfected it to godlike levels. His Thunderclap and Flash is unmatched.", category: "Main", color: "#fbbf24", icon: "⚡", kanji: "我妻善逸" },
-  { name: "Inosuke Hashibira", role: "Beast Warrior", breathing: "Beast Breathing (Self-Taught)", bio: "Raised by boars in the mountains, Inosuke is wild, aggressive, and fiercely competitive. His dual serrated blades and spatial awareness make him a force.", category: "Main", color: "#4ade80", icon: "🐗", kanji: "嘴平伊之助" },
+  { name: "Zenitsu Agatsuma", role: "Thunder Swordsman", breathing: "Thunder Breathing", bio: "Cowardly when awake, lethal when asleep. Zenitsu mastered only one form — but perfected it to godlike levels. His Thunderclap and Flash is unmatched.", category: "Main", color: "#fbbf24", icon: "⚡", kanji: "我妻善逸", image: "/characters/zenitsu.webp" },
+  { name: "Inosuke Hashibira", role: "Beast Warrior", breathing: "Beast Breathing (Self-Taught)", bio: "Raised by boars in the mountains, Inosuke is wild, aggressive, and fiercely competitive. His dual serrated blades and spatial awareness make him a force.", category: "Main", color: "#4ade80", icon: "🐗", kanji: "嘴平伊之助", image: "/characters/Inosuke.jpg" },
+  { name: "Genya Shinazugawa", role: "Demon Slayer", breathing: "None — Demon Absorption", bio: "Sanemi's younger brother who absorbs demonic powers by consuming demon flesh. A fierce fighter carrying both his brother's rage and his own deep trauma.", category: "Main", color: "#a855f7", icon: "💪", kanji: "不死川玄弥", image: "/characters/Genya.webp" },
   { name: "Giyu Tomioka", role: "Water Hashira", breathing: "Water Breathing", bio: "Stoic and solitary. He created the 11th Form: Dead Calm — a technique so perfect it stops all attacks within range.", category: "Hashira", color: "#3b82f6", icon: "🌊", kanji: "冨岡義勇" },
   { name: "Kyojuro Rengoku", role: "Flame Hashira", breathing: "Flame Breathing", bio: "Radiant and passionate. His final battle against Akaza aboard the Mugen Train is legendary. 'Set Your Heart Ablaze!'", category: "Hashira", color: "#fb923c", icon: "🔥", kanji: "煉獄杏寿郎" },
   { name: "Shinobu Kocho", role: "Insect Hashira", breathing: "Insect Breathing", bio: "Gentle smile hiding cold fury. She kills with Wisteria poison instead of beheading — the only Hashira who fights with chemistry.", category: "Hashira", color: "#c084fc", icon: "🦋", kanji: "胡蝶しのぶ" },
@@ -25,7 +27,7 @@ const characters: Character[] = [
   { name: "Tengen Uzui", role: "Sound Hashira", breathing: "Sound Breathing", bio: "Ex-shinobi who reads battles as musical scores. Flamboyant, powerful, and wielding twin explosive cleavers.", category: "Hashira", color: "#e879f9", icon: "🎵", kanji: "宇髄天元" },
   { name: "Obanai Iguro", role: "Serpent Hashira", breathing: "Serpent Breathing", bio: "Cold and exacting, with a twisted blade that mirrors a serpent's path. Devoted to Mitsuri and accompanied by his snake Kaburamaru.", category: "Hashira", color: "#a78bfa", icon: "🐍", kanji: "伊黒小芭内" },
   { name: "Sanemi Shinazugawa", role: "Wind Hashira", breathing: "Wind Breathing", bio: "Scarred, fierce, and possessing rare Marechi blood that intoxicates demons. His rage masks deep love for his brother Genya.", category: "Hashira", color: "#6ee7b7", icon: "🌪️", kanji: "不死川実弥" },
-  { name: "Gyomei Himejima", role: "Stone Hashira", breathing: "Stone Breathing", bio: "The strongest Hashira — a blind, gentle giant wielding a spiked flail and axe with unmatched physical power.", category: "Hashira", color: "#8b7355", icon: "🪨", kanji: "悲鳴嶼行冥" },
+  { name: "Gyomei Himejima", role: "Stone Hashira", breathing: "Stone Breathing", bio: "The strongest Hashira — a blind, gentle giant wielding a spiked flail and axe with unmatched physical power.", category: "Hashira", color: "#8b7355", icon: "🪨", kanji: "悲鳴嶼行冥", image: "/characters/Gyomei.webp" },
   { name: "Muzan Kibutsuji", role: "Demon King", breathing: "Progenitor — No Breathing", bio: "The first demon, source of all evil. He seeks perfect immortality and the conquest of sunlight. All demons bow before him.", category: "Demon", color: "#ef4444", icon: "👹", kanji: "鬼舞辻無惨" },
   { name: "Kokushibo", role: "Upper Rank One", breathing: "Moon Breathing (16 Forms)", bio: "Yoriichi's twin brother. Consumed by envy, he chose demonhood. His crescent blades grow from his own flesh.", category: "Demon", color: "#7c3aed", icon: "🌙", kanji: "黒死牟" },
   { name: "Akaza", role: "Upper Rank Three", breathing: "Destructive Death — Martial Arts", bio: "A pure martial artist who killed Rengoku. His tragic past as Hakuji makes him one of the most compelling villains.", category: "Demon", color: "#f97316", icon: "👊", kanji: "猗窩座" },
@@ -34,6 +36,7 @@ const characters: Character[] = [
 
 const categoryColors = { Main: "#60a5fa", Hashira: "#fb923c", Demon: "#ef4444" };
 const cats = ["All", "Main", "Hashira", "Demon"] as const;
+
 
 const CharacterShowcase = () => {
   const [filter, setFilter] = useState<string>("All");
@@ -106,16 +109,16 @@ const CharacterShowcase = () => {
                 <motion.div
                   className="glass-card group cursor-pointer relative overflow-hidden"
                   onClick={() => setFlipped(flipped === i ? null : i)}
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.97 }}
                 >
-                  {/* Top bar */}
+                  {/* Top accent bar */}
                   <div
                     className="h-0.5 opacity-70"
                     style={{ background: `linear-gradient(90deg, transparent, ${char.color}, transparent)` }}
                   />
 
-                  {/* Front */}
+                  {/* === FRONT === */}
                   <AnimatePresence mode="wait">
                     {flipped !== i ? (
                       <motion.div
@@ -126,37 +129,96 @@ const CharacterShowcase = () => {
                         transition={{ duration: 0.3 }}
                         className="p-4 text-center"
                       >
-                        {/* Aura background */}
+                        {/* Hover aura background */}
                         <div
                           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                          style={{ background: `radial-gradient(circle at 50% 30%, ${char.color}15, transparent 60%)` }}
+                          style={{ background: `radial-gradient(circle at 50% 35%, ${char.color}18, transparent 65%)` }}
                         />
 
-                        <motion.span
-                          className="text-4xl block mb-2 relative z-10"
-                          whileHover={{ scale: 1.3, rotate: [0, -10, 10, 0] }}
-                          transition={{ type: "spring", stiffness: 300 }}
-                        >
-                          {char.icon}
-                        </motion.span>
+                        {/* Character image (if available) or fallback emoji */}
+                        {char.image ? (
+                          <div className="relative mx-auto mb-3 w-20 h-20 flex items-center justify-center">
+                            {/* Pulsing glow ring */}
+                            <motion.div
+                              className="absolute inset-[-1px] rounded-full pointer-events-none z-0"
+                              animate={{
+                                boxShadow: [
+                                  `0 0 0 1.5px ${char.color}30`,
+                                  `0 0 0 1.5px ${char.color}70, 0 0 18px ${char.color}35`,
+                                  `0 0 0 1.5px ${char.color}30`,
+                                ],
+                              }}
+                              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            />
+
+                            {/* Floating character image */}
+                            <motion.img
+                              src={char.image}
+                              alt={char.name}
+                              className="relative w-full h-full object-cover object-top rounded-full z-10"
+                              style={{ border: `1.5px solid ${char.color}35` }}
+                              animate={{ y: [0, -4, 0] }}
+                              transition={{
+                                duration: 3 + (i % 4) * 0.6,
+                                repeat: Infinity,
+                                ease: "easeInOut",
+                                delay: i * 0.15,
+                              }}
+                            />
+                          </div>
+                        ) : (
+                          <motion.span
+                            className="text-4xl block mb-3 relative z-10"
+                            whileHover={{ scale: 1.3, rotate: [0, -10, 10, 0] }}
+                            transition={{ type: "spring", stiffness: 300 }}
+                          >
+                            {char.icon}
+                          </motion.span>
+                        )}
+
                         <h4 className="font-heading text-sm text-foreground mb-0.5 relative z-10">{char.name}</h4>
                         <p className="text-[10px] font-heading tracking-wider relative z-10" style={{ color: char.color }}>{char.role}</p>
                         <p className="text-[9px] text-muted-foreground font-heading mt-1 opacity-50 relative z-10">{char.kanji}</p>
+
+                        {/* "Tap to flip" hint dot */}
+                        <motion.div
+                          className="absolute bottom-2 right-2 w-1.5 h-1.5 rounded-full opacity-40"
+                          style={{ background: char.color }}
+                          animate={{ opacity: [0.3, 0.8, 0.3] }}
+                          transition={{ duration: 1.8, repeat: Infinity }}
+                        />
                       </motion.div>
                     ) : (
+                      /* === BACK === */
                       <motion.div
                         key="back"
                         initial={{ rotateY: -90, opacity: 0 }}
                         animate={{ rotateY: 0, opacity: 1 }}
                         exit={{ rotateY: 90, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="p-4"
+                        className="p-4 relative overflow-hidden"
                         style={{ background: `linear-gradient(135deg, ${char.color}08, transparent)` }}
                       >
-                        <h4 className="font-heading text-xs mb-1" style={{ color: char.color }}>{char.name}</h4>
-                        <p className="text-[10px] text-muted-foreground font-heading mb-2">{char.breathing}</p>
-                        <p className="text-foreground/60 font-body text-[11px] leading-relaxed">{char.bio}</p>
-                        <div className="mt-2 flex items-center gap-1">
+                        {/* Ghost image watermark on back */}
+                        {char.image && (
+                          <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                            <img
+                              src={char.image}
+                              alt=""
+                              className="w-full h-full object-cover object-top"
+                              style={{ opacity: 0.07, transform: "scale(1.1)" }}
+                            />
+                            <div
+                              className="absolute inset-0"
+                              style={{ background: `linear-gradient(to bottom, transparent 30%, ${char.color}05 100%)` }}
+                            />
+                          </div>
+                        )}
+
+                        <h4 className="font-heading text-xs mb-1 relative z-10" style={{ color: char.color }}>{char.name}</h4>
+                        <p className="text-[10px] text-muted-foreground font-heading mb-2 relative z-10">{char.breathing}</p>
+                        <p className="text-foreground/65 font-body text-[11px] leading-relaxed relative z-10">{char.bio}</p>
+                        <div className="mt-2 flex items-center gap-1 relative z-10">
                           <span className="w-1.5 h-1.5 rounded-full" style={{ background: char.color }} />
                           <span className="text-[9px] font-heading tracking-wider" style={{ color: char.color }}>{char.category}</span>
                         </div>
@@ -167,7 +229,7 @@ const CharacterShowcase = () => {
                   {/* Hover border glow */}
                   <div
                     className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                    style={{ boxShadow: `inset 0 0 20px ${char.color}10, 0 0 15px ${char.color}08` }}
+                    style={{ boxShadow: `inset 0 0 20px ${char.color}12, 0 0 20px ${char.color}10` }}
                   />
                 </motion.div>
               </motion.div>

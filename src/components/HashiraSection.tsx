@@ -55,7 +55,7 @@ const HashiraSection = () => {
             The <span className="accent-text">Hashira</span>
           </h2>
           <p className="text-foreground/60 font-body text-lg max-w-2xl mx-auto">
-            The strongest demon slayers in existence — nine elite warriors who are the last line of defense against Muzan Kibutsuji.
+            The strongest demon slayers in existence — nine elite warriors who serve directly under Master Kagaya Ubuyashiki as humanity's last line of defense.
           </p>
         </div>
 
@@ -76,10 +76,6 @@ const HashiraSection = () => {
               {el}
             </button>
           ))}
-        </div>
-
-        <div className="glass-card p-4 text-center mb-12 max-w-md mx-auto">
-          <span className="text-muted-foreground font-body text-sm">Second only to Master Kagaya Ubuyashiki</span>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

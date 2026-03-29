@@ -12,14 +12,14 @@ interface Sword {
 }
 
 const swords: Sword[] = [
-  { owner: "Tanjiro Kamado", name: "Black Katana", desc: "A rare, jet-black Nichirin blade. Black blades are considered a bad omen — yet Tanjiro's channels both Water and Hinokami Kagura (Sun Breathing), glowing blue or blazing crimson depending on technique.", style: "Water / Sun", tsuba: "Wheel", color: "Black → Red", glow: "#4facfe" },
-  { owner: "Zenitsu Agatsuma", name: "Yellow Lightning Blade", desc: "A brilliant yellow blade crackling with lightning patterns. Perfectly tuned for Zenitsu's Thunder Breathing, allowing devastating speed in a single strike — all executed while asleep.", style: "Thunder", tsuba: "Circular", color: "Yellow", glow: "#ffd700" },
-  { owner: "Inosuke Hashibira", name: "Dual Serrated Blades", desc: "Twin grey-blue serrated Nichirin swords that Inosuke ground down himself to create jagged edges. Designed not to slice, but to tear — brutal and unconventional.", style: "Beast", tsuba: "None", color: "Grey-Blue", glow: "#4ade80" },
-  { owner: "Giyu Tomioka", name: "Blue Water Katana", desc: "A classic deep-blue Nichirin katana featuring a hexagonal tsuba. Represents the calm, powerful flow of Water Breathing — precise, defensive, and devastatingly effective.", style: "Water", tsuba: "Hexagon", color: "Blue", glow: "#60a5fa" },
-  { owner: "Shinobu Kocho", name: "Lavender Needle Blade", desc: "A slender, needle-like lavender blade — the only Nichirin sword with a hollowed tip for injecting Wisteria poison. She kills with toxins instead of beheading.", style: "Insect", tsuba: "Butterfly", color: "Lavender", glow: "#c084fc" },
-  { owner: "Kyojuro Rengoku", name: "Flame Katana", desc: "A red-yellow flame-patterned katana blazing with the power of Flame Breathing. Its guard bears a flame motif, channeling Rengoku's burning passion.", style: "Flame", tsuba: "Flame", color: "Red-Yellow", glow: "#fb923c" },
-  { owner: "Mitsuri Kanroji", name: "Whip Katana", desc: "An extraordinarily long, ultra-thin and flexible Nichirin blade — a whip-katana unlike any other. Its flexibility exploits Mitsuri's unique physiology.", style: "Love", tsuba: "Round", color: "Pink-Green", glow: "#f472b6" },
-  { owner: "Muichiro Tokito", name: "White Mist Blade", desc: "A pure-white Nichirin blade — ethereal and mysterious. Reflects the elusive, unpredictable nature of Mist Breathing. Muichiro mastered it in just two months.", style: "Mist", tsuba: "Round", color: "White", glow: "#e2e8f0" },
+  { owner: "Tanjiro Kamado", name: "Black Katana", desc: "A rare jet-black blade — channels both Water and Sun Breathing, blazing crimson or blue depending on technique.", style: "Water / Sun", tsuba: "Wheel", color: "Black → Red", glow: "#4facfe" },
+  { owner: "Zenitsu Agatsuma", name: "Yellow Lightning Blade", desc: "Crackling yellow blade tuned for Thunder Breathing — one devastating strike, executed while asleep.", style: "Thunder", tsuba: "Circular", color: "Yellow", glow: "#ffd700" },
+  { owner: "Inosuke Hashibira", name: "Dual Serrated Blades", desc: "Twin grey-blue Nichirin swords ground jagged by Inosuke himself — built to tear, not slice.", style: "Beast", tsuba: "None", color: "Grey-Blue", glow: "#4ade80" },
+  { owner: "Giyu Tomioka", name: "Blue Water Katana", desc: "Deep-blue with hexagonal tsuba — the calm precision of Water Breathing made manifest.", style: "Water", tsuba: "Hexagon", color: "Blue", glow: "#60a5fa" },
+  { owner: "Shinobu Kocho", name: "Lavender Needle Blade", desc: "The only Nichirin with a hollowed tip for injecting Wisteria poison — she kills with toxins, not beheading.", style: "Insect", tsuba: "Butterfly", color: "Lavender", glow: "#c084fc" },
+  { owner: "Kyojuro Rengoku", name: "Flame Katana", desc: "Red-yellow flame-patterned blade with a flame-motif tsuba — Rengoku's burning spirit in steel.", style: "Flame", tsuba: "Flame", color: "Red-Yellow", glow: "#fb923c" },
+  { owner: "Mitsuri Kanroji", name: "Whip Katana", desc: "Ultra-thin flexible Nichirin that bends like a whip — only Mitsuri's unique physiology can wield it.", style: "Love", tsuba: "Round", color: "Pink-Green", glow: "#f472b6" },
+  { owner: "Muichiro Tokito", name: "White Mist Blade", desc: "Pure-white and ethereal — reflects the elusive, unpredictable nature of Mist Breathing.", style: "Mist", tsuba: "Round", color: "White", glow: "#e2e8f0" },
 ];
 
 const SwordsSection = () => {
@@ -56,18 +56,19 @@ const SwordsSection = () => {
           </p>
         </div>
 
-        {/* Banner */}
-        <div className="glass-card p-8 mb-16 max-w-4xl mx-auto">
-          <h3 className="font-heading text-2xl mb-4 text-foreground">The Legend of the Nichirin</h3>
-          <p className="text-foreground/70 font-body leading-relaxed mb-6">
-            Forged from <strong className="text-accent">Scarlet Crimson Iron Sand</strong> collected from high mountain ore deposits constantly bathed in sunlight, Nichirin blades are the only weapons capable of permanently slaying demons.
-          </p>
-          <ul className="space-y-2 text-foreground/70 font-body">
-            <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-primary" /> Engraved with <em>"Destroyer of Demons"</em> (Akki Messatsu)</li>
-            <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-accent" /> Color reflects the wielder's breathing style</li>
-            <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-blue-500" /> Unique tsuba (handguard) for each slayer</li>
-            <li className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-purple-500" /> Turn crimson-red when a Hashira reaches their peak</li>
-          </ul>
+        {/* Stats strip */}
+        <div className="flex flex-wrap justify-center gap-6 mb-12 max-w-3xl mx-auto">
+          {[
+            { label: "Scarlet Crimson Ore", sub: "Forged from sunlight-bathed ore" },
+            { label: "Akki Messatsu", sub: "\"Destroyer of Demons\" engraving" },
+            { label: "Color = Breathing Style", sub: "Unique to each wielder" },
+            { label: "Turns Crimson at Peak", sub: "Hashira Demon Slayer Mark" },
+          ].map(({ label, sub }) => (
+            <div key={label} className="glass-card px-5 py-3 text-center min-w-[150px]">
+              <p className="font-heading text-xs text-foreground">{label}</p>
+              <p className="text-[10px] text-muted-foreground mt-0.5">{sub}</p>
+            </div>
+          ))}
         </div>
 
         {/* Cards grid */}
@@ -83,7 +84,7 @@ const SwordsSection = () => {
               style={{ animationDelay: `${i * 0.1}s`, ["--glow" as string]: sword.glow }}
             >
               <div
-                className="h-32 flex items-center justify-center relative overflow-hidden"
+                className="h-[210px] flex items-center justify-center relative overflow-hidden"
                 style={{ background: `linear-gradient(135deg, ${sword.glow}15, ${sword.glow}05)` }}
               >
                 <SwordAnimation style={sword.style} glow={sword.glow} isVisible={visibleCards.has(i)} />
